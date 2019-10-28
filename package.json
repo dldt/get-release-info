@@ -1,0 +1,20 @@
+{
+  "name": "get-release-info",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dldt/get-release-info",
+  "author": "Thomas Arcila <thomas.arcila@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^1.1.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  }
+}

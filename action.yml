@@ -1,0 +1,14 @@
+name: "get-release-info"
+author: "Thomas arcila <thomas.arcila@gmail.com>"
+description: "Expose release information to next steps of the job"
+inputs:
+  tag-name:
+    description: "The reference to extract release information from"
+outputs:
+  tag-name:
+    description: "The unqualified name of the tag"
+  upload_url:
+    description: "The upload_url of the release"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
