@@ -25,12 +25,12 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         if (!process.env.GITHUB_TOKEN) {
             throw new Error("Github token must be provided as GITHUB_TOKEN environment variable.");
         }
-        const tag_name = core.getInput("tag-name", REQUIRED);
+        const tagName = core.getInput("tag-name", REQUIRED);
         const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
         const releases = yield octokit.repos.listReleases(Object.assign({}, github.context.repo));
-        const matchingReleases = releases.data.filter((x) => tag_name === x.tag_name || (tag_name === "refs/tags/" + x.tag_name));
+        const matchingReleases = releases.data.filter((x) => tagName === x.tag_name || (tagName === "refs/tags/" + x.tag_name));
         if (matchingReleases.length !== 1) {
-            throw new Error("Cannot find a single release matching " + tag_name);
+            throw new Error("Cannot find a single release matching " + tagName);
         }
         const release = matchingReleases[0];
         core.setOutput("tag-name", release.tag_name);
